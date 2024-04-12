@@ -13,8 +13,8 @@ import xarray as xr
 # Input file
 lcc_nad27_path = Path("az1000_lcc_nad27.nc")
 
-# Target CRS
-crs_target = CRS.from_epsg(4326)  # WGS84
+# Target CRS to reproject into
+crs_target = CRS.from_epsg(4326)
 
 # Output file
 target_path = Path("az1000_wgs84.nc")
