@@ -1,1 +1,4 @@
--108.5 31.5 Lambert Conformal Conic Projection
+-111.85 31.23 0 WGS 84
+-111.4 31.23 1 Lambert Conformal Conic
+-110.2 31.23 1 -112@., 31@.
+-109.7 31.23 2 2SP 33@. & 45@.

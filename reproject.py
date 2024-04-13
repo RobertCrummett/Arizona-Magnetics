@@ -1,4 +1,4 @@
-""" Reproject NETCDF file
+""" Reproject NETCDF file to WGS 84
 
 Author: R Nate Crummett
 """
@@ -11,14 +11,19 @@ import xarray as xr
 
 ###################################################
 # Input file
-lcc_nad27_path = Path("az1000_lcc_nad27.nc")
+grid_path = Path("Grids")
+lcc_nad27_path = grid_path / Path("az1000ag_lcc_nad27.nc")
 
 # Target CRS to reproject into
 crs_target = CRS.from_epsg(4326)
 
 # Output file
-target_path = Path("az1000_wgs84.nc")
+target_path = grid_path / Path("az1000ag_wgs84.nc")
 
+###################################################
+#
+#    No edits necessary below this line
+#
 ###################################################
 # Import data
 dataset_lcc_nad27 = xr.load_dataset(lcc_nad27_path)

@@ -1,7 +1,7 @@
 """ Parse raw GXF data file, Save as Xarray
 
 Raw data retrieved from:
-https://pubs.usgs.gov/of/2001/ofr-01-0081/html/arizona.html
+https://pubs.usgs.gov/of/2001/ofr-01-0081/html/arizona.htm
 
 Author: R Nate Crummett
 """
@@ -14,15 +14,26 @@ import xarray as xr
 
 ##############################################
 # Raw data path
-data_path = Path("az1000ag_gxf")
+raw_dir = Path("Raw")
+data_path = raw_dir / Path("az1000ag_gxf")
 
 # Output NETCDF path
-lcc_nad27_path = Path(f"az1000_lcc_nad27.nc")
+grid_dir = Path("Grids")
+lcc_nad27_path = grid_dir / Path("az1000ag_lcc_nad27.nc")
+
+##############################################
+#
+#    No edits necessary below this line
+#
+##############################################
+# Make sure output directory exists
+
+if not grid_dir.is_dir():
+    grid_dir.mkdir()
 
 ##############################################
 # Projection data extracted manually from raw data file
 
-# Provided map projection data
 projection = "lcc"  # lambert conformal conic 2SP
 datum = "NAD27"  # NAD27 datum
 lat_1, lat_2 = 33, 45  # first and second standard parallels
@@ -35,7 +46,6 @@ false_easting = 0  # easting at false origin meters
 false_northing = 0  # northing at false origin meters
 scale = 1  # ellipsoid scale factor
 
-# Provided grid meta data
 xsize = 1_134  # grid X size
 ysize = 1_285  # grid Y size
 xorigin = -269_500  # grid X origin meters
