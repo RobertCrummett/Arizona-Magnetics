@@ -9,21 +9,22 @@ data = xr.load_dataarray(data_path)
 fig = pygmt.Figure()
 
 fig.coast(
-    region = [-130, -70, 24, 52],
-    projection = "L-100/35/33/45/12c",
+    region = [-115.5, -108.5, 31, 37.5],
+    projection = "L-112/31/33/45/12c",
     land = "gray",
     shorelines = "1/0.5p, gray30",
     borders = ["1/0.8p,gray30", "2/0.2p.gray30"],
     frame = True,
-    dcw = [
-        "US.TX+gorange",
-        "US.KY+p1p,blue",
-    ]
+    # dcw = [
+    #    "US.TX+gorange",
+    #    "US.KY+p1p,blue",
+    #]
 )
 
 fig.grdimage(
     grid = data,
     cmap = "turbo",
+    transparency = 50,
     nan_transparent = True,
 )
 
